@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanessa Ramalho – Onglerie & Esthétique à Genève | Institut de Beauté Haut de Gamme</title>
+<meta name="description" content="Vanessa Ramalho – Institut de beauté à Genève. Onglerie, extensions de cils, épilation laser, soins esthétiques. Prenez rendez-vous dès maintenant. Rue Micheli-du-Crest 11, 1205 Genève.">
+<meta name="keywords" content="onglerie Genève, extensions de cils Genève, épilation laser Genève, institut beauté Genève, manucure Genève, esthétique Genève">
+<meta property="og:title" content="Vanessa Ramalho – Onglerie & Esthétique Genève">
+<meta property="og:description" content="Institut de beauté haut de gamme à Genève. Manucure, extensions de cils, épilation. Réservation WhatsApp.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --pink-pale: #e8c4c4;
+  --pink-mid: #d4a0a0;
+  --pink-deep: #c07070;
+  --pink-blush: #f2dada;
+  --pink-bg: #f7eded;
+  --noir: #1a1010;
+  --noir-soft: #2d1e1e;
+  --noir-mid: #4a3030;
+  --gold: #b8966e;
+  --gold-light: #d4b48a;
+  --white: #fefafa;
+  --text-body: #3d2828;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Jost', sans-serif;
+  --transition: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--white);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+
+/* ===== REVEAL ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s var(--transition), transform 0.9s var(--transition);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.9s var(--transition), transform 0.9s var(--transition);
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.9s var(--transition), transform 0.9s var(--transition);
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 1.2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s var(--transition);
+}
+nav.scrolled {
+  background: rgba(247, 237, 237, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--pink-pale);
+  padding: 0.8rem 3rem;
+  box-shadow: 0 4px 30px rgba(192, 112, 112, 0.08);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--noir);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.nav-logo span {
+  font-size: 0.55rem;
+  font-family: var(--font-body);
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--pink-deep);
+}
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--noir-mid);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0; right: 0;
+  height: 1px;
+  background: var(--pink-deep);
+  transform: scaleX(0);
+  transition: transform 0.3s var(--transition);
+  transform-origin: right;
+}
+.nav-links a:hover { color: var(--pink-deep); }
+.nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+.nav-cta {
+  background: var(--noir);
+  color: var(--white) !important;
+  padding: 0.65rem 1.6rem !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.22em !important;
+  transition: background 0.3s, transform 0.3s !important;
+}
+.nav-cta:hover { background: var(--pink-deep) !important; }
+.nav-cta::after { display: none !important; }
+
+/* ===== HERO ===== */
+#hero {
+  min-height: 100vh;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+.hero-left {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10rem 4rem 6rem 5rem;
+  background: var(--pink-bg);
+}
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--pink-deep);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--pink-deep);
+}
+.hero-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--noir);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+.hero-h1 em {
+  font-style: italic;
+  color: var(--pink-deep);
+}
+.hero-h2 {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--noir-mid);
+  max-width: 420px;
+  margin-bottom: 3rem;
+  line-height: 1.8;
+}
+.hero-ctas {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--noir);
+  color: var(--white);
+  padding: 1rem 2.2rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.4s var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--pink-deep);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--transition);
+}
+.btn-primary:hover::before { transform: scaleX(1); }
+.btn-primary span { position: relative; z-index: 1; }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--noir);
+  padding: 1rem 0;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid var(--pink-pale);
+  transition: all 0.3s;
+}
+.btn-secondary:hover { color: var(--pink-deep); border-color: var(--pink-deep); gap: 1rem; }
+.hero-right {
+  position: relative;
+  overflow: hidden;
+}
+.img-hero {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 8s var(--transition);
+  filter: saturate(0.9);
+}
+#hero:hover .img-hero { transform: scale(1.03); }
+.hero-right::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(232,196,196,0.3) 0%, transparent 60%);
+}
+.hero-badge {
+  position: absolute;
+  bottom: 3rem;
+  left: -1.5rem;
+  background: var(--white);
+  padding: 1.2rem 1.8rem;
+  box-shadow: 0 20px 60px rgba(192,112,112,0.15);
+  z-index: 3;
+  max-width: 220px;
+}
+.hero-badge-num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--pink-deep);
+  line-height: 1;
+}
+.hero-badge-text {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--noir-mid);
+  margin-top: 0.3rem;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ===== SECTION BASE ===== */
+section { position: relative; }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--pink-deep);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.section-label::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--pink-deep);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  color: var(--noir);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.section-title em { font-style: italic; color: var(--pink-deep); }
+
+/* ===== DOULEURS / IMPACT ===== */
+#impact {
+  padding: 8rem 0;
+  background: var(--noir);
+  overflow: hidden;
+}
+.impact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+.impact-text .section-label { color: var(--pink-pale); }
+.impact-text .section-label::before { background: var(--pink-pale); }
+.impact-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 2.5rem;
+}
+.impact-title em { font-style: italic; color: var(--pink-pale); }
+.impact-points {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.impact-point {
+  border-left: 1px solid var(--noir-mid);
+  padding-left: 1.8rem;
+  transition: border-color 0.3s;
+}
+.impact-point:hover { border-color: var(--pink-mid); }
+.impact-point-num {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--pink-mid);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.4rem;
+}
+.impact-point h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.impact-point p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+}
+.impact-visual {
+  position: relative;
+}
+.img-impact {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  filter: grayscale(20%) saturate(0.85);
+}
+.impact-visual::before {
+  content: '';
+  position: absolute;
+  top: -2rem;
+  right: -2rem;
+  width: 60%;
+  height: 60%;
+  border: 1px solid var(--noir-mid);
+  z-index: -1;
+}
+
+/* ===== METHODOLOGIE ===== */
+#methode {
+  padding: 9rem 0;
+  background: var(--white);
+}
+.methode-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 6rem;
+}
+.methode-intro p {
+  font-size: 1.05rem;
+  color: var(--noir-mid);
+  margin-top: 1.5rem;
+  line-height: 1.85;
+}
+.methode-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--pink-pale);
+}
+.methode-step {
+  padding: 3rem 2.5rem;
+  border-right: 1px solid var(--pink-pale);
+  position: relative;
+  transition: background 0.4s;
+}
+.methode-step:last-child { border-right: none; }
+.methode-step:hover { background: var(--pink-bg); }
+.step-icon {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+.step-num {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--pink-pale);
+  line-height: 1;
+  margin-bottom: 1rem;
+  display: block;
+}
+.methode-step h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--noir);
+  margin-bottom: 1rem;
+}
+.methode-step p {
+  font-size: 0.85rem;
+  color: var(--noir-mid);
+  line-height: 1.8;
+}
+.methode-signature {
+  margin-top: 5rem;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--pink-deep);
+  letter-spacing: 0.02em;
+}
+
+/* ===== PRESTATIONS ===== */
+#prestations {
+  padding: 9rem 0;
+  background: var(--pink-bg);
+}
+.prestations-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: end;
+  margin-bottom: 5rem;
+}
+.prestations-header p {
+  font-size: 0.95rem;
+  color: var(--noir-mid);
+  line-height: 1.85;
+}
+.presta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+.presta-card {
+  background: var(--white);
+  overflow: hidden;
+  position: relative;
+}
+.presta-card:first-child { grid-column: span 2; }
+.presta-img-wrap {
+  overflow: hidden;
+  aspect-ratio: 16/7;
+}
+.presta-card:not(:first-child) .presta-img-wrap { aspect-ratio: 4/3; }
+.img-portfolio {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--transition), filter 0.8s;
+  filter: saturate(0.85);
+}
+.presta-card:hover .img-portfolio { transform: scale(1.06); filter: saturate(1); }
+.presta-body {
+  padding: 2rem 2.5rem 2.5rem;
+}
+.presta-cat {
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--pink-deep);
+  margin-bottom: 0.8rem;
+  font-weight: 400;
+}
+.presta-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--noir);
+  margin-bottom: 0.8rem;
+}
+.presta-card p {
+  font-size: 0.83rem;
+  color: var(--noir-mid);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.presta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.presta-tag {
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--pink-pale);
+  color: var(--pink-deep);
+  font-family: var(--font-body);
+  font-weight: 400;
+  transition: all 0.3s;
+}
+.presta-tag:hover { background: var(--pink-deep); color: var(--white); border-color: var(--pink-deep); }
+.presta-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--noir);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-top: 1.5rem;
+  border-bottom: 1px solid var(--pink-pale);
+  padding-bottom: 0.3rem;
+  transition: all 0.3s;
+}
+.presta-cta-link:hover { color: var(--pink-deep); border-color: var(--pink-deep); gap: 0.9rem; }
+
+/* ===== TÉMOIGNAGES ===== */
+#temoignages {
+  padding: 9rem 0;
+  background: var(--white);
+}
+.temoignages-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 7rem;
+  align-items: start;
+}
+.temoignages-left .section-title { margin-bottom: 1.5rem; }
+.temoignages-left p {
+  font-size: 0.88rem;
+  color: var(--noir-mid);
+  line-height: 1.85;
+  margin-bottom: 2.5rem;
+}
+.rating-display {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+.stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 0.05em; }
+.rating-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--noir);
+}
+.rating-label { font-size: 0.7rem; letter-spacing: 0.1em; color: var(--noir-mid); }
+.temoignages-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.temoignage-card {
+  background: var(--pink-bg);
+  padding: 2.5rem 3rem;
+  position: relative;
+  transition: background 0.3s;
+}
+.temoignage-card:hover { background: var(--pink-blush); }
+.temoignage-card::before {
+  content: '\201C';
+  font-family: var(--font-display);
+  font-size: 5rem;
+  color: var(--pink-pale);
+  line-height: 0.5;
+  position: absolute;
+  top: 2rem; left: 2.5rem;
+  z-index: 0;
+}
+.temoignage-text {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--noir-soft);
+  line-height: 1.75;
+  position: relative;
+  z-index: 1;
+  padding-top: 1rem;
+}
+.temoignage-author {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.temoignage-name {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pink-deep);
+  font-weight: 400;
+}
+.temoignage-stars { color: var(--gold); font-size: 0.7rem; }
+
+/* ===== INTENT / WHY ===== */
+#intent {
+  padding: 9rem 0;
+  background: var(--noir-soft);
+  overflow: hidden;
+}
+.intent-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+  align-items: center;
+}
+.intent-visual {
+  position: relative;
+}
+.img-intent {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
+.intent-quote {
+  position: absolute;
+  bottom: -3rem;
+  right: -3rem;
+  background: var(--pink-deep);
+  padding: 2rem 2.5rem;
+  max-width: 260px;
+}
+.intent-quote p {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.6;
+}
+.intent-content .section-label { color: var(--pink-pale); }
+.intent-content .section-label::before { background: var(--pink-pale); }
+.intent-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 2rem;
+}
+.intent-title em { font-style: italic; color: var(--pink-pale); }
+.intent-content p {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+.intent-values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.intent-value {
+  padding: 1.2rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: border-color 0.3s, background 0.3s;
+}
+.intent-value:hover {
+  border-color: var(--pink-mid);
+  background: rgba(192,112,112,0.05);
+}
+.intent-value span {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pink-pale);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.intent-value p {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+/* ===== ABOUT ===== */
+#about {
+  padding: 9rem 0;
+  background: var(--white);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7rem;
+  align-items: center;
+}
+.about-content .section-title { margin-bottom: 2rem; }
+.about-content p {
+  font-size: 0.88rem;
+  color: var(--noir-mid);
+  line-height: 1.9;
+  margin-bottom: 1.2rem;
+}
+.about-serment {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  border-left: 3px solid var(--pink-deep);
+  background: var(--pink-bg);
+}
+.about-serment p {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--noir);
+  line-height: 1.7;
+  margin: 0;
+}
+.about-visual { position: relative; }
+.img-about {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+}
+.about-details {
+  position: absolute;
+  bottom: -2rem;
+  left: -2rem;
+  background: var(--white);
+  padding: 1.8rem 2.2rem;
+  box-shadow: 0 20px 60px rgba(192,112,112,0.12);
+}
+.about-detail-item { display: flex; gap: 0.8rem; align-items: flex-start; margin-bottom: 0.8rem; }
+.about-detail-item:last-child { margin-bottom: 0; }
+.detail-icon { color: var(--pink-deep); font-size: 0.9rem; margin-top: 0.1rem; }
+.detail-text { font-size: 0.78rem; color: var(--noir-mid); line-height: 1.5; }
+.detail-text strong { display: block; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--noir); font-weight: 500; margin-bottom: 0.15rem; }
+
+/* ===== FAQ ===== */
+#faq {
+  padding: 9rem 0;
+  background: var(--pink-bg);
+}
+.faq-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 7rem;
+}
+.faq-intro p {
+  font-size: 0.88rem;
+  color: var(--noir-mid);
+  line-height: 1.85;
+  margin-top: 1.5rem;
+}
+.faq-list { display: flex; flex-direction: column; }
+.faq-item {
+  border-bottom: 1px solid var(--pink-pale);
+  overflow: hidden;
+}
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.8rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--noir);
+  text-align: left;
+  transition: color 0.3s;
+}
+.faq-question:hover { color: var(--pink-deep); }
+.faq-icon {
+  width: 28px; height: 28px;
+  border: 1px solid var(--pink-pale);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--pink-deep);
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+.faq-item.open .faq-icon { background: var(--pink-deep); color: var(--white); transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s var(--transition), padding 0.3s;
+}
+.faq-item.open .faq-answer { max-height: 300px; padding-bottom: 1.5rem; }
+.faq-answer p {
+  font-size: 0.85rem;
+  color: var(--noir-mid);
+  line-height: 1.85;
+}
+
+/* ===== FINAL CTA ===== */
+#final-cta {
+  padding: 10rem 0;
+  background: var(--noir);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#final-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(192,112,112,0.12) 0%, transparent 70%);
+}
+.cta-label { color: var(--pink-pale); }
+.cta-label::before { background: var(--pink-pale); }
+.cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+.cta-title em { font-style: italic; color: var(--pink-pale); }
+.cta-sub {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.8;
+  max-width: 480px;
+  margin: 0 auto 3.5rem;
+}
+.cta-buttons {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-cta-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--pink-deep);
+  color: var(--white);
+  padding: 1.2rem 3rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.4s var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.btn-cta-main::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--white);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--transition);
+}
+.btn-cta-main:hover::before { transform: scaleX(1); }
+.btn-cta-main:hover { color: var(--pink-deep); }
+.btn-cta-main span { position: relative; z-index: 1; }
+.btn-cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--white);
+  padding: 1.2rem 2.5rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.4s var(--transition);
+}
+.btn-cta-ghost:hover { border-color: var(--pink-pale); color: var(--pink-pale); }
+.cta-horaires {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.horaire-item {
+  text-align: center;
+}
+.horaire-item span {
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 0.4rem;
+}
+.horaire-item p {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--white);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--noir-soft);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 4rem 0 2rem;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.78rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+.footer-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+.footer-brand-sub {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--pink-mid);
+  margin-bottom: 1.5rem;
+}
+.footer-brand p {
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  max-width: 280px;
+}
+.footer-social {
+  display: flex;
+  gap: 0.8rem;
+}
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+.social-btn:hover { border-color: var(--pink-mid); color: var(--pink-pale); }
+.footer-col h4 {
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.7rem; }
+.footer-col ul li a {
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  font-size: 0.78rem;
+  transition: color 0.3s;
+}
+.footer-col ul li a:hover { color: var(--pink-pale); }
+.footer-address {
+  font-style: normal;
+  line-height: 1.9;
+  font-size: 0.78rem;
+}
+.footer-address a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.3s; }
+.footer-address a:hover { color: var(--pink-pale); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-copy {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.3);
+}
+.footer-legal {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-legal a {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-legal a:hover { color: var(--pink-pale); }
+.footer-seo-text {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.2);
+  margin-top: 1.5rem;
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+/* ===== PHONE BANNER ===== */
+.phone-banner {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+}
+.phone-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: var(--pink-deep);
+  color: var(--white);
+  padding: 0.9rem 1.5rem;
+  text-decoration: none;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 40px rgba(192,112,112,0.35);
+  animation: pulse 3s infinite;
+  transition: background 0.3s;
+}
+.phone-btn:hover { background: var(--noir); }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 10px 40px rgba(192,112,112,0.35); }
+  50% { box-shadow: 0 10px 60px rgba(192,112,112,0.6); }
+}
+
+/* ===== MOBILE NAV TOGGLE ===== */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 5px;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--noir);
+  transition: all 0.3s;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  #hero { grid-template-columns: 1fr; }
+  .hero-right { height: 50vh; }
+  .hero-left { padding: 8rem 2.5rem 4rem; }
+  .impact-grid, .methode-steps { grid-template-columns: 1fr; }
+  .methode-steps { grid-template-columns: 1fr; }
+  .methode-step { border-right: none; border-bottom: 1px solid var(--pink-pale); }
+  .presta-grid { grid-template-columns: 1fr; }
+  .presta-card:first-child { grid-column: span 1; }
+  .temoignages-layout { grid-template-columns: 1fr; }
+  .intent-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .faq-layout { grid-template-columns: 1fr; }
+  .prestations-header { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; flex-direction: column; position: fixed; top: 0; right: 0; bottom: 0; width: 280px; background: var(--white); padding: 5rem 3rem; gap: 2rem; z-index: 999; box-shadow: -20px 0 60px rgba(0,0,0,0.1); transform: translateX(100%); transition: transform 0.4s var(--transition); }
+  .nav-links.open { display: flex; transform: translateX(0); }
+  .nav-toggle { display: flex; }
+  .container { padding: 0 1.5rem; }
+  nav { padding: 1.2rem 1.5rem; }
+  nav.scrolled { padding: 0.8rem 1.5rem; }
+  .impact-grid { gap: 3rem; }
+  .intent-grid { gap: 3rem; }
+  .about-grid { gap: 3rem; }
+  .temoignages-layout { gap: 3rem; }
+  .faq-layout { gap: 3rem; }
+}
+
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-h1 { font-size: 2.4rem; }
+  .cta-title { font-size: 2.2rem; }
+  .cta-horaires { gap: 1.5rem; }
+  .intent-quote { right: 0; bottom: -2rem; }
+  .about-details { left: 0; bottom: -1rem; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- Phone Float -->
+<div class="phone-banner">
+  <a href="https://api.whatsapp.com/message/WEMQGCZTSTSNM1?autoload=1&app_absent=0&utm_source=ig" class="phone-btn" target="_blank" rel="noopener">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>Réserver</span>
+  </a>
+</div>
+
+<!-- ===== NAVIGATION ===== -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    Vanessa Ramalho
+    <span>Onglerie & Esthétique · Genève</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#prestations">Prestations</a></li>
+    <li><a href="#temoignages">Avis</a></li>
+    <li><a href="#about">L'Atelier</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="https://api.whatsapp.com/message/WEMQGCZTSTSNM1?autoload=1&app_absent=0&utm_source=ig" class="nav-cta" target="_blank" rel="noopener">Prendre Rendez-vous</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ===== 1. HERO ===== -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow reveal">Institut de Beauté · Genève</p>
+    <h1 class="hero-h1 reveal">
+      Révélez<br>
+      l'<em>éclat</em><br>
+      qui vous appartient.
+    </h1>
+    <h2 class="hero-h2 reveal">
+      Onglerie de précision, extensions de cils artistiques, épilation sur-mesure — chaque soin est pensé pour magnifier votre beauté singulière, à Genève.
+    </h2>
+    <div class="hero-ctas reveal">
+      <a href="https://api.whatsapp.com/message/WEMQGCZTSTSNM1?autoload=1&app_absent=0&utm_source=ig" class="btn-primary" target="_blank" rel="noopener">
+        <span>Réserver ma séance</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://www.instagram.com/vanessaramalhongleriesthetique/" class="btn-secondary" target="_blank" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Découvrir l'univers
+      </a>
+    </div>
+    <div class="hero-badge reveal-right" style="transition-delay:0.4s">
+      <div class="hero-badge-num">5★</div>
+      <div class="hero-badge-text">Expérience client<br>exceptionnelle</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img
+      class="img-hero"
+      src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1200&q=85&auto=format&fit=crop"
+      alt="Soins esthétiques haut de gamme Genève – Vanessa Ramalho"
+      loading="eager"
+    />
+  </div>
+</section>
+
+<!-- ===== 2. IMPACT INVISIBLE & DOULEURS ===== -->
+<section id="impact">
+  <div class="container">
+    <div class="impact-grid">
+      <div class="impact-text reveal-left">
+        <p class="section-label">Ce que vous méritez</p>
+        <h2 class="impact-title">
+          Vous en avez assez des <em>résultats</em> qui ne tiennent pas leurs promesses.
+        </h2>
+        <div class="impact-points">
+          <div class="impact-point reveal" style="transition-delay:0.1s">
+            <div class="impact-point-num">01</div>
+            <h3>Des soins sans âme</h3>
+            <p>Trop souvent, les instituts traitent les clientes à la chaîne, sans écoute réelle. Chaque détail compte, chaque peau est unique — c'est cela que nous pratiquons.</p>
+          </div>
+          <div class="impact-point reveal" style="transition-delay:0.2s">
+            <div class="impact-point-num">02</div>
+            <h3>Des résultats éphémères</h3>
+            <p>Un vernis qui s'écaille au bout de 3 jours, des cils qui tombent prématurément. Chez Vanessa Ramalho, la durabilité et la précision sont une signature.</p>
+          </div>
+          <div class="impact-point reveal" style="transition-delay:0.3s">
+            <div class="impact-point-num">03</div>
+            <h3>Un manque de confiance</h3>
+            <p>Vous méritez de quitter l'institut en vous sentant magnifiée, pas simplement "faite". Notre engagement : vous rendre fière de chaque détail.</p>
+          </div>
+        </div>
+      </div>
+      <div class="impact-visual reveal-right">
+        <img
+          class="img-impact"
+          src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=900&q=85&auto=format&fit=crop"
+          alt="Soin ongles precision Genève"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. METHODOLOGIE ===== -->
+<section id="methode">
+  <div class="container">
+    <div class="methode-intro reveal">
+      <p class="section-label" style="justify-content:center">Notre Signature</p>
+      <h2 class="section-title" style="text-align:center">La méthode <em>Vanessa Ramalho</em><br>en trois temps.</h2>
+      <p>Chaque séance est une expérience pensée de bout en bout — de l'accueil personnalisé jusqu'au résultat qui illumine. Voici comment nous travaillons pour vous.</p>
+    </div>
+    <div class="methode-steps">
+      <div class="methode-step reveal" style="transition-delay:0.1s">
+        <span class="step-num">01</span>
+        <h3>Écoute & Diagnostic</h3>
+        <p>Avant chaque soin, nous prenons le temps de comprendre vos attentes, analyser l'état de vos ongles, de vos cils, de votre peau. Ce moment d'écoute définit le protocole sur-mesure qui vous correspond.</p>
+      </div>
+      <div class="methode-step reveal" style="transition-delay:0.2s">
+        <span class="step-num">02</span>
+        <h3>Soin de Précision</h3>
+        <p>Armée des meilleures techniques et des produits les plus sûrs, Vanessa exécute chaque geste avec une attention méticuleuse. Ici, rien n'est laissé au hasard — chaque millimètre compte.</p>
+      </div>
+      <div class="methode-step reveal" style="transition-delay:0.3s">
+        <span class="step-num">03</span>
+        <h3>Départ Confiant</h3>
+        <p>Vous repartez avec des conseils d'entretien personnalisés et la certitude d'un résultat qui dure. Notre objectif : que vous ne pensiez plus jamais à aller ailleurs.</p>
+      </div>
+    </div>
+    <p class="methode-signature reveal">"La beauté n'est pas un luxe — c'est une forme de soin envers soi-même."</p>
+  </div>
+</section>
+
+<!-- ===== 4. PRESTATIONS ===== -->
+<section id="prestations">
+  <div class="container">
+    <div class="prestations-header">
+      <div class="reveal-left">
+        <p class="section-label">L'Expertise</p>
+        <h2 class="section-title">Nos soins d'<em>exception</em><br>à Genève.</h2>
+      </div>
+      <div class="reveal-right">
+        <p>De la manucure artisanale aux extensions de cils volume russe, chaque prestation est exécutée avec une précision de haute couture. Parce que les détails qui transforment méritent une main experte.</p>
+        <a href="https://api.whatsapp.com/message/WEMQGCZTSTSNM1?autoload=1&app_absent=0&utm_source=ig" class="btn-primary" style="margin-top:2rem;display:inline-flex" target="_blank" rel="noopener">
+          <span>Prendre rendez-vous</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="presta-grid">
+
+      <!-- CARD 1 – ONGLERIE (LARGE) -->
+      <div class="presta-card reveal">
+        <div class="presta-img-wrap">
+          <img class="img-portfolio" src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1400&q=85&auto=format&fit=crop" alt="Manucure onglerie Genève Vanessa Ramalho">
+        </div>
+        <div class="presta-body">
+          <p class="presta-cat">— Onglerie</p>
+          <h3>Manucure & Vernis Semi-Permanent</h3>
+          <p>Soins des mains et des pieds d'une finesse absolue. Pose de vernis semi-permanent en gel, nail art sur-mesure, rénovation cuticules. Un résultat impeccable qui résiste jusqu'à 4 semaines.</p>
+          <div class="presta-tags">
+            <span class="presta-tag">Vernis gel</span>
+            <span class="presta-tag">Nail art</span>
+            <span class="presta-tag">Soins des pieds</span>
+            <span class="presta-tag">Pose capsules</span>
+            <span class="presta-tag">Remplissage</span>
+          </div>
+          <a href="https://api.whatsapp.com/message/WEMQGCZTSTSNM1?autoload=1&app_absent=0&utm_source=ig" class="presta-cta-link" target="_blank" rel="noopener">
+            Réserver ce soin
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 2 – ÉPILATION CIRE -->
+      <div class="presta-card reveal" style="transition-delay:0.1s">
+        <div class="presta-img-wrap">
+          <img class="img-portfolio" src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=900&q=85&auto=format&fit=crop" alt="Épilation à la cire Genève">
+        </div>
+        <div class="presta-body">
+          <p class="presta-cat">— Épilation</p>
+          <h3>Épilation à la Cire 🕯️</h3>
+          <p>Cire chaude ou froide sélectionnée selon la zone et la sensibilité. Résultats durables, peau veloutée. Zones : jambes, aisselles, maillot intégral, bras, dos.</p>
+          <div class="presta-tags">
+            <span class="presta-tag">Cire chaude</span>
+            <span class="presta-tag">Maillot brésilien</span>
+            <span class="presta-tag">Corps entier</span>
+          </div>
+          <a href="https://api.whatsapp.com/message/WEMQGCZTSTSNM1?autoload=1&app_absent=0&utm_source=ig" class="presta-cta-link" target="_blank" rel="noopener">
+            Réserver ce soin
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 3 – ÉPILATION FIL -->
+      <div class="presta-card reveal" style="transition-delay:0.2s">
+        <div class="presta-img-wrap">
+          <img class="img-portfolio" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=900&q=85&auto=format&fit=crop" alt="Épilation au fil visage Genève">
+        </div>
+        <div class="presta-body">
+          <p class="presta-cat">— Épilation</p>
+          <h3>Épilation au Fil 🧵</h3>
+          <p>Technique millénaire d'une précision absolue pour le visage : sourcils, lèvre supérieure, menton. Résultat net et durable, parfait pour les peaux sensibles.</p>
+          <div class="presta-tags">
+            <span class="presta-tag">Sourcils</span>
+            <span class="presta-tag">Visage</span>
+            <span class="presta-tag">Peaux sensibles</span>
+          </div>
+          <a href="https://api.whatsapp.com/message/WEMQGCZTSTSNM1?autoload=1&app_absent=0&utm_source=ig" class="presta-cta-link" target="_blank" rel="noopener">
+            Réserver ce soin
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 4 – LASER -->
+      <div class="presta-card reveal" style="transition-delay:0.3s">
+        <div class="presta-img-wrap">
+          <img class="img-portfolio" src="https://images.unsplash.com/photo-1581182815767-9e14e4f7c5f4?w=900&q=85&auto=format&fit=crop" alt="Épilation laser Genève">
+        </div>
+        <div class="presta-body">
+          <p class="presta-cat">— Épilation</p>
+          <h3>Épilation Laser 🦵</h3>
+          <p>La solution définitive. Technologie laser de dernière génération pour une réduction permanente du poil sur toutes les zones, en toute sécurité. Protocole adapté à chaque phototype.</p>
+          <div class="presta-tags">
+            <span class="presta-tag">Résultat durable</span>
+            <span class="presta-tag">Tous phototypes</span>
+            <span class="presta-tag">Corps & visage</span>
+          </div>
+          <a href="https://api.whatsapp.com/message/WEMQGCZTSTSNM1?autoload=1&app_absent=0&utm_source=ig" class="presta-cta-link" target="_blank" rel="noopener">
+            Réserver ce soin
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 5 – EXTENSION CILS (FULL WIDTH) -->
+      <div class="presta-card reveal" style="transition-delay:0.1s; grid-column: span 2;">
+        <div class="presta-img-wrap" style="aspect-ratio:16/7">
+          <img class="img-portfolio" src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=1400&q=85&auto=format&fit=crop" alt="Extensions de cils Genève Vanessa Ramalho">
+        </div>
+        <div class="presta-body">
+          <p class="presta-cat">— Regard</p>
+          <h3>Extensions de Cils ✨</h3>
+          <p>L'art de sublimer le regard sans artifices visibles. Pose classique, volume russe, méga-volume ou effet naturel — chaque extension est sélectionnée et posée un à un à la perfection. Le résultat : un regard intense, un port de tête assuré, dès le réveil.</p>
+          <div class="presta-tags">
+            <span class="presta-tag">Volume russe</span>
+            <span class="presta-tag">Cils classiques</span>
+            <span class="presta-tag">Mega volume</span>
+            <span class="presta-tag">Effet naturel</span>
+            <span class="presta-tag">Retouche 3 sem.</span>
+          </div>
+          <a href="https://api.whatsapp.com/message/WEMQGCZTSTSNM1?autoload=1&app_absent=0&utm_source=ig" class="presta-cta-link" target="_blank" rel="noopener">
+            Réserver ce soin
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. PREUVE SOCIALE ===== -->
+<section id="temoignages">
+  <div class="container">
+    <div class="temoignages-layout">
+      <div class="reveal-left">
+        <p class="section-label">Ce qu'elles disent</p>
+        <h2 class="section-title">Une <em>confiance</em><br>qui se transmet.</h2>
+        <p>L'excellence d'un soin se mesure à la fidélité qu'il inspire. Des clientes de Genève et de la région nous font confiance et renouvellent leur séance avec bonheur.</p>
+        <div class="rating-display" style="margin-bottom:0.3rem">
+          <div class="rating-num">5.0</div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <div class="rating-label">Note Google · Genève</div>
+          </div>
+        </div>
+      </div>
+      <div class="temoignages-right">
+        <div class="temoignage-card reveal" style="transition-delay:0.1s">
+          <p class="temoignage-text">Vanessa est très professionnelle et gentille. Le soin des pieds et la pose de vernis semi-permanent est incroyable. Je la conseille fortement.</p>
+          <div class="temoignage-author">
+            <span class="temoignage-name">— Andreia Faria</span>
+            <span class="temoignage-stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="temoignage-card reveal" style="transition-delay:0.2s">
+          <p class="temoignage-text">Vanessa est incroyable. Très professionnelle, je suis une clientèle fidèle et très satisfaite des services proposés. Je la recommande vivement !</p>
+          <div class="temoignage-author">
+            <span class="temoignage-name">— Martina Lügstenmann · Local Guide</span>
+            <span class="temoignage-stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="temoignage-card reveal" style="transition-delay:0.3s">
+          <p class="temoignage-text">Vanessa est très professionnelle. Le soin des pieds et la pose de vernis semi-permanent est parfait. Je la conseille vivement.</p>
+          <div class="temoignage-author">
+            <span class="temoignage-name">— Isabelle Verdan</span>
+            <span class="temoignage-stars">★★★★★</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. INTENT / WHY ===== -->
+<section id="intent">
+  <div class="container">
+    <div class="intent-grid">
+      <div class="intent-visual reveal-left">
+        <img
+          class="img-intent"
+          src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=900&q=85&auto=format&fit=crop"
+          alt="Institut beauté Genève ambiance"
+        />
+        <div class="intent-quote">
+          <p>"Chaque femme mérite de se sentir magnifique dans son quotidien."</p>
+        </div>
+      </div>
+      <div class="intent-content reveal-right">
+        <p class="section-label">Notre Engagement</p>
+        <h2 class="intent-title">
+          Nous ne faisons pas des soins.<br>
+          Nous façonnons de la <em>confiance</em>.
+        </h2>
+        <p>Chez Vanessa Ramalho, chaque prestation est un acte de soin profond. Nous croyons que la beauté extérieure est un reflet de l'attention que l'on se porte — et nous prenons ce rôle très au sérieux.</p>
+        <p>Notre espace à Genève est un sanctuaire où l'expertise technique rencontre la bienveillance humaine. Vous êtes ici pour vous — sans jugement, avec tout notre savoir-faire.</p>
+        <div class="intent-values">
+          <div class="intent-value">
+            <span>Précision</span>
+            <p>Chaque geste est maîtrisé, chaque détail est soigné.</p>
+          </div>
+          <div class="intent-value">
+            <span>Bienveillance</span>
+            <p>Une atmosphère chaleureuse, à l'écoute de vous.</p>
+          </div>
+          <div class="intent-value">
+            <span>Durabilité</span>
+            <p>Des produits qualitatifs pour des résultats qui durent.</p>
+          </div>
+          <div class="intent-value">
+            <span>Fidélité</span>
+            <p>Une relation de confiance qui se construit dans le temps.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. ABOUT ===== -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-content reveal-left">
+        <p class="section-label">L'Esthéticienne</p>
+        <h2 class="section-title">Vanessa Ramalho,<br>une <em>vision</em> de la beauté.</h2>
+        <p>Esthéticienne diplômée et passionnée, Vanessa a bâti son expertise au fil des années en se formant aux techniques les plus pointues d'Europe. Son atelier genevois est le fruit d'une vision simple mais exigeante : offrir à chaque femme un espace où elle se sent enfin vue.</p>
+        <p>Spécialisée en onglerie de précision et en extensions de cils, elle s'est forgé une réputation solide à Genève grâce à des résultats constants et une relation authentique avec ses clientes. Pour Vanessa, la beauté n'est pas une mode — c'est une pratique quotidienne de soin de soi.</p>
+        <div class="about-serment">
+          <p>« Mon serment : que chaque cliente quitte mon atelier avec un sourire qu'elle n'avait pas en entrant. »</p>
+        </div>
+      </div>
+      <div class="about-visual reveal-right">
+        <img
+          class="img-about"
+          src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900&q=85&auto=format&fit=crop"
+          alt="Ambiance atelier beauté Genève"
+        />
+        <div class="about-details">
+          <div class="about-detail-item">
+            <span class="detail-icon">📍</span>
+            <div class="detail-text">
+              <strong>Adresse</strong>
+              Rue Micheli-du-Crest 11<br>1205 Genève
+            </div>
+          </div>
+          <div class="about-detail-item">
+            <span class="detail-icon">📞</span>
+            <div class="detail-text">
+              <strong>Contact</strong>
+              <a href="tel:+41782360666" style="color:inherit;text-decoration:none">+41 78 236 06 66</a>
+            </div>
+          </div>
+          <div class="about-detail-item">
+            <span class="detail-icon">🕐</span>
+            <div class="detail-text">
+              <strong>Horaires</strong>
+              Lun·Mar·Jeu : 9h–19h<br>
+              Samedi : 8h–17h<br>
+              Mer·Ven·Dim : Fermé
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. FAQ ===== -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="reveal-left">
+        <p class="section-label">Questions</p>
+        <h2 class="section-title">Tout ce que<br>vous voulez <em>savoir</em>.</h2>
+        <p>Vous avez une question avant de prendre rendez-vous ? Nous avons anticipé les plus fréquentes. Pour toute demande spécifique, contactez-nous directement sur WhatsApp.</p>
+        <a href="https://api.whatsapp.com/message/WEMQGCZTSTSNM1?autoload=1&app_absent=0&utm_source=ig" class="btn-primary" style="margin-top:2.5rem;display:inline-flex" target="_blank" rel="noopener">
+          <span>Poser ma question</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="faq-list reveal-right">
+        <div class="faq-item">
+          <button class="faq-question">
+            Combien de temps dure une pose de vernis semi-permanent ?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>En moyenne, un vernis semi-permanent posé par Vanessa tient entre 3 et 4 semaines sans écaillage. La durée peut varier selon le type d'ongles et l'entretien quotidien. Elle vous donnera des conseils personnalisés pour prolonger la tenue.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Les extensions de cils conviennent-elles à toutes ?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Oui, à condition que vos cils naturels soient en bonne santé. Lors de la consultation initiale, Vanessa évalue la santé de vos cils et recommande la technique adaptée (classique, volume russe, mega volume) en fonction de votre morphologie et de vos attentes.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Quand faut-il faire une retouche de cils ?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Une retouche est recommandée toutes les 2 à 3 semaines, selon le cycle naturel de chute de vos cils. Après 4 semaines sans entretien, une repose complète peut être nécessaire.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            L'épilation laser est-elle douloureuse ?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>La sensation est souvent décrite comme un léger picotement. La technologie utilisée est équipée d'un système de refroidissement qui rend la séance très supportable. L'inconfort diminue également au fil des séances.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Comment réserver un rendez-vous ?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>La réservation se fait directement via WhatsApp en cliquant sur le bouton "Réserver". Vous pouvez également appeler le +41 78 236 06 66. Nous vous confirmons le créneau dans les meilleurs délais.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Quels sont vos horaires d'ouverture ?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>L'atelier est ouvert le lundi, mardi et jeudi de 9h à 19h, et le samedi de 8h à 17h. Le mercredi, vendredi et dimanche, l'atelier est fermé. Des horaires spéciaux peuvent être arrangés sur demande pour les cas exceptionnels.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Combien de séances faut-il pour l'épilation laser ?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>En général, 6 à 10 séances sont nécessaires pour un résultat optimal, espacées de 4 à 8 semaines selon les zones. Le nombre exact est évalué lors de la première séance de diagnostic gratuite.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Proposez-vous des soins pour les hommes ?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Absolument. Les soins de manucure, d'épilation à la cire et au laser sont ouverts aux hommes. Contactez-nous pour en savoir plus sur les protocoles spécifiquement adaptés.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. FINAL CTA ===== -->
+<section id="final-cta">
+  <div class="container" style="position:relative;z-index:2;text-align:center">
+    <p class="section-label cta-label reveal" style="justify-content:center">Votre Moment</p>
+    <h2 class="cta-title reveal">
+      Prenez rendez-vous.<br>
+      Vivez l'<em>expérience</em>.
+    </h2>
+    <p class="cta-sub reveal">
+      Votre prochaine séance chez Vanessa Ramalho commence par un simple message. En quelques secondes, votre moment de beauté est réservé.
+    </p>
+    <div class="cta-buttons reveal">
+      <a href="https://api.whatsapp.com/message/WEMQGCZTSTSNM1?autoload=1&app_absent=0&utm_source=ig" class="btn-cta-main" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span>Réserver sur WhatsApp</span>
+      </a>
+      <a href="https://www.instagram.com/vanessaramalhongleriesthetique/" class="btn-cta-ghost" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Découvrir l'univers Instagram
+      </a>
+    </div>
+    <div class="cta-horaires reveal" style="transition-delay:0.2s">
+      <div class="horaire-item">
+        <span>Lun · Mar · Jeu</span>
+        <p>9h00 – 19h00</p>
+      </div>
+      <div class="horaire-item">
+        <span>Samedi</span>
+        <p>8h00 – 17h00</p>
+      </div>
+      <div class="horaire-item">
+        <span>Téléphone</span>
+        <p><a href="tel:+41782360666" style="color:inherit;text-decoration:none">+41 78 236 06 66</a></p>
+      </div>
+      <div class="horaire-item">
+        <span>Adresse</span>
+        <p>Rue Micheli-du-Crest 11, Genève</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-name">Vanessa Ramalho</div>
+        <div class="footer-brand-sub">Onglerie & Esthétique · Genève</div>
+        <p>Institut de beauté haut de gamme à Genève, spécialisé en onglerie de précision, extensions de cils, épilation à la cire, au fil et laser. Une expérience unique, à chaque séance.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/vanessaramalhongleriesthetique/" class="social-btn" target="_blank" rel="noopener">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100076236480114&locale=fr_CA" class="social-btn" target="_blank" rel="noopener">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            Facebook
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Prestations</h4>
+        <ul>
+          <li><a href="#prestations">Manucure & Vernis</a></li>
+          <li><a href="#prestations">Soins des pieds</a></li>
+          <li><a href="#prestations">Extensions de cils</a></li>
+          <li><a href="#prestations">Épilation cire</a></li>
+          <li><a href="#prestations">Épilation au fil</a></li>
+          <li><a href="#prestations">Épilation laser</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informations</h4>
+        <ul>
+          <li><a href="#about">Notre atelier</a></li>
+          <li><a href="#temoignages">Avis clients</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://api.whatsapp.com/message/WEMQGCZTSTSNM1?autoload=1&app_absent=0&utm_source=ig" target="_blank">Réserver</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact & Accès</h4>
+        <address class="footer-address">
+          <p>Rue Micheli-du-Crest 11<br>1205 Genève, Suisse</p>
+          <br>
+          <p>
+            <a href="tel:+41782360666">+41 78 236 06 66</a>
+          </p>
+          <br>
+          <p>
+            <strong style="color:rgba(255,255,255,0.5);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:400">Horaires</strong><br>
+            Lun · Mar · Jeu : 9h–19h<br>
+            Samedi : 8h–17h<br>
+            Mer · Ven · Dim : Fermé
+          </p>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Vanessa Ramalho Onglerie & Esthétique · Genève · Tous droits réservés</p>
+      <div class="footer-legal">
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">CGV</a>
+      </div>
+    </div>
+    <p class="footer-seo-text">
+      Institut de beauté Genève — Onglerie Genève — Extensions de cils Genève — Épilation laser Genève — Manucure haut de gamme Genève — Vernis semi-permanent Genève — Rue Micheli-du-Crest, 1205 Genève, Suisse.
+    </p>
+  </div>
+</footer>
+
+<script>
+// ===== NAV SCROLL =====
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ===== MOBILE NAV =====
+const toggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+// ===== REVEAL ON SCROLL =====
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), (entry.target.dataset.delay || 0) * 1000);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+// ===== FAQ ACCORDION =====
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
